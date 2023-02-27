@@ -4,12 +4,19 @@
 
 class Player
 {
-	std::string playerName;
+public:
+	enum Sign {
+		X,
+		O
+	};
+private:
+	Sign m_sign;
+	std::string m_playerName;
 public:
 	Player() = default;
-	bool PlacePosition(const uint8_t& position);
-	std::string GetPlayerName();
+	bool PlaceSign(const uint8_t& position, const Board& board);
+	std::string GetPlayerName() const;
 	void SetPlayerName(const std::string& name);
-	void PrintPlayer();
+	void SetSign(const Sign& sign);
 };
 
