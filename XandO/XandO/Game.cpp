@@ -17,15 +17,15 @@ void Game::Run()
 	{
 	case 0: 
 		//0 - incepe computer
-		m_computer.SetSign(Player::Sign::X);
-		m_player.SetSign(Player::Sign::O);
+		m_computer.SetSign(Sign::sign::X);
+		m_player.SetSign(Sign::sign::O);
 		m_order.push(m_computer);
 		m_order.push(m_player);
 		break;
 	case 1: 
 		//1 - incepe player
-		m_player.SetSign(Player::Sign::O);
-		m_computer.SetSign(Player::Sign::X);
+		m_player.SetSign(Sign::sign::O);
+		m_computer.SetSign(Sign::sign::X);
 		m_order.push(m_player);
 		m_order.push(m_computer);
 		break;

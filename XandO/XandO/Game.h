@@ -1,9 +1,11 @@
 #pragma once
-#include "Player.h"
-#include "Board.h"
 #include <cstdlib>
 #include <iostream>
 #include <queue>
+
+#include "Sign.h"
+#include "Player.h"
+#include "Board.h"
 
 class Game
 {

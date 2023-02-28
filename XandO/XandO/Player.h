@@ -2,21 +2,19 @@
 #include <iostream>
 #include <string>
 
+#include "Sign.h"
+#include "Board.h"
+
 class Player
 {
-public:
-	enum Sign {
-		X,
-		O
-	};
 private:
-	Sign m_sign;
+	Sign::sign m_sign;
 	std::string m_playerName;
 public:
 	Player() = default;
 	bool PlaceSign(const uint8_t& position, const Board& board);
 	std::string GetPlayerName() const;
 	void SetPlayerName(const std::string& name);
-	void SetSign(const Sign& sign);
+	void SetSign(const Sign::sign& sign);
 };
 

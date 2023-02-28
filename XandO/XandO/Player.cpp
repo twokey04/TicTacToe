@@ -15,7 +15,7 @@ void Player::SetPlayerName(const std::string& name)
 	m_playerName = name;
 }
 
-void Player::SetSign(const Sign& sign)
+void Player::SetSign(const Sign::sign& sign)
 {
 	m_sign = sign;
 }
