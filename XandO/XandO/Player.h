@@ -12,7 +12,7 @@ private:
 	std::string m_playerName;
 public:
 	Player() = default;
-	void PlaceSign(const uint16_t& position, Board& board);
+	bool PlaceSign(const uint16_t& position, Board& board);
 	std::string GetPlayerName() const;
 	void SetPlayerName(const std::string& name);
 	void SetSign(const Sign::sign& sign);

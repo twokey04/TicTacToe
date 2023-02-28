@@ -9,7 +9,7 @@ Game::Game()
 	m_player.SetPlayerName(tmpName);
 }
 
-void Game::Run()
+void Game::RunConsole()
 {
 	srand(time(NULL));
 	uint16_t random = rand() % 2;
@@ -24,10 +24,11 @@ void Game::Run()
 		break;
 	case 1: 
 		//1 - incepe player
-		m_player.SetSign(Sign::sign::O);
-		m_computer.SetSign(Sign::sign::X);
+		m_player.SetSign(Sign::sign::X);
+		m_computer.SetSign(Sign::sign::O);
 		m_order.push(m_player);
 		m_order.push(m_computer);
+		m_board.PrintBoard();
 		break;
 	}
 	while (1)
@@ -45,12 +46,15 @@ void Game::Run()
 			else break;
 
 			m_board.PrintBoard();
+			std::cout << "\nComputer placed at position " << availablePositions[pickedPosition] << '\n';
 		}
 		else
 		{
-			std::cout << "Pick position!\n";
-			std::cin >> pickedPosition;
-			tmpPlayer.PlaceSign(pickedPosition, m_board);
+			do 
+			{
+				std::cout << "\nPick position: ";
+				std::cin >> pickedPosition;
+			} while (tmpPlayer.PlaceSign(pickedPosition, m_board) == false);
 			m_board.PrintBoard();
 			
 		}

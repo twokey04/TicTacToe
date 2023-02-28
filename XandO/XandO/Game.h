@@ -15,6 +15,6 @@ class Game
 	std::queue<Player> m_order;
 public:
 	Game();
-	void Run();
+	void RunConsole();
 };
 
