@@ -1,8 +1,10 @@
 #include "Player.h"
 
-bool Player::PlaceSign(const uint8_t& position,const Board& board)
+void Player::PlaceSign(const uint16_t& position, Board& board)
 {
-	board[position] = m_sign;
+	if (board[position] == Sign::sign::None)
+		board[position] = m_sign;
+	else std::cout<<((board[position] == Sign::sign::X)?"X":"O")<<" "<<position<<"\n";
 }
 
 std::string Player::GetPlayerName() const

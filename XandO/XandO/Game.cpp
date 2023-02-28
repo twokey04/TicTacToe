@@ -12,7 +12,7 @@ Game::Game()
 void Game::Run()
 {
 	srand(time(NULL));
-	uint8_t random = rand() % 2;
+	uint16_t random = rand() % 2;
 	switch (random)
 	{
 	case 0: 
@@ -33,19 +33,35 @@ void Game::Run()
 	while (1)
 	{
 		Player tmpPlayer = m_order.front();
-		int pickedPosition;
+		uint16_t pickedPosition;
 		if (tmpPlayer.GetPlayerName() == "")
 		{
-			std::vector<uint8_t> availablePositions = m_board.GetEmptyCells();
-			pickedPosition = rand() % availablePositions.size();
-			tmpPlayer.PlaceSign(pickedPosition, m_board);
+			std::vector<uint16_t> availablePositions = m_board.GetEmptyCells();
+			if (availablePositions.size() != 0)
+			{
+				pickedPosition = rand() % availablePositions.size();
+				tmpPlayer.PlaceSign(availablePositions[pickedPosition], m_board);
+			}
+			else break;
+
+			m_board.PrintBoard();
 		}
 		else
 		{
+			std::cout << "Pick position!\n";
 			std::cin >> pickedPosition;
 			tmpPlayer.PlaceSign(pickedPosition, m_board);
+			m_board.PrintBoard();
+			
 		}
+		if (m_board.CheckGameState() != 3)
+			break;
 		m_order.pop();
-	   
+		m_order.push(tmpPlayer);
 	}
+	if (m_board.CheckGameState() == 0)
+		std::cout << "O won!\n";
+	else if (m_board.CheckGameState() == 1)
+		std::cout << "X won!\n";
+	else std::cout << "Tie!\n";
 }
