@@ -6,8 +6,9 @@
 #include "Sign.h"
 #include "Player.h"
 #include "Board.h"
+#include "IGame.h"
 
-class Game
+class Game: public IGame
 {
 	Board m_board;
 	Player m_player;
@@ -15,6 +16,6 @@ class Game
 	std::queue<Player> m_order;
 public:
 	Game();
-	void RunConsole();
+	void RunConsole() override;
 };
 
