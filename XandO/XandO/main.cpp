@@ -4,6 +4,6 @@
 int main() {
 	//IGamePtr game = std::make_shared<Game>();
 	IGamePtr game = IGame::Produce();
-	game -> RunConsole();
+	game->RunConsole();
 	return 0;
 }

@@ -5,18 +5,19 @@
 #include <algorithm>
 
 #include "Sign.h"
+#include "IBoard.h"
 
-class Board
+class Board : public IBoard
 {
 
 public:
 	Board();
-	void SetSign(const uint16_t& position, const Sign::sign& sign);
-	uint16_t CheckGameState();
-	void ClearBoard();
-	std::vector<uint16_t> GetEmptyCells() const;
-	Sign::sign& operator[](const uint16_t& position);
-	void PrintBoard();
+	void SetSign(const uint16_t& position, const Sign::sign& sign) override;
+	uint16_t CheckGameState() override;
+	void ClearBoard() override;
+	std::vector<uint16_t> GetEmptyCells() const override;
+	Sign::sign& operator[](const uint16_t& position) override;
+	void PrintBoard() override;
 
 private:
 	bool CheckTie();

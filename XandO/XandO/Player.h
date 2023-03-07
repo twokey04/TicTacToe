@@ -4,17 +4,18 @@
 
 #include "Sign.h"
 #include "Board.h"
+#include "IPlayer.h"
 
-class Player
+class Player: public IPlayer
 {
-private:
-	Sign::sign m_sign;
-	std::string m_playerName;
 public:
 	Player() = default;
 	bool PlaceSign(const uint16_t& position, Board& board);
 	std::string GetPlayerName() const;
 	void SetPlayerName(const std::string& name);
 	void SetSign(const Sign::sign& sign);
+private:
+	Sign::sign m_sign;
+	std::string m_playerName;
 };
 
