@@ -1,9 +1,13 @@
-#include "Game.h"
 #include <memory>
 
-int main() {
-	//IGamePtr game = std::make_shared<Game>();
+#include "Game.h"
+
+int main() 
+{
 	IGamePtr game = IGame::Produce();
 	game->RunConsole();
+
 	return 0;
 }
+
+

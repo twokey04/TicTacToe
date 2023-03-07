@@ -3,10 +3,13 @@
 
 Game::Game()
 {
+	m_board = IBoard::Produce();
+	m_player = IPlayer::Produce();
+	m_computer = IPlayer::Produce();
 	std::cout << "Enter your name!\n";
 	std::string tmpName;
 	std::cin >> tmpName;
-	m_player.SetPlayerName(tmpName);
+	m_player->SetPlayerName(tmpName);
 }
 
 void Game::RunConsole()
@@ -17,35 +20,35 @@ void Game::RunConsole()
 	{
 	case 0: 
 		//0 - incepe computer
-		m_computer.SetSign(Sign::sign::X);
-		m_player.SetSign(Sign::sign::O);
+		m_computer->SetSign(Sign::sign::X);
+		m_player->SetSign(Sign::sign::O);
 		m_order.push(m_computer);
 		m_order.push(m_player);
 		break;
 	case 1: 
 		//1 - incepe player
-		m_player.SetSign(Sign::sign::X);
-		m_computer.SetSign(Sign::sign::O);
+		m_player->SetSign(Sign::sign::X);
+		m_computer->SetSign(Sign::sign::O);
 		m_order.push(m_player);
 		m_order.push(m_computer);
-		m_board.PrintBoard();
+		m_board->PrintBoard();
 		break;
 	}
 	while (1)
 	{
-		Player tmpPlayer = m_order.front();
+		IPlayerPtr tmpPlayer = m_order.front();
 		uint16_t pickedPosition;
-		if (tmpPlayer.GetPlayerName() == "")
+		if (tmpPlayer->GetPlayerName() == "")
 		{
-			std::vector<uint16_t> availablePositions = m_board.GetEmptyCells();
+			std::vector<uint16_t> availablePositions = m_board->GetEmptyCells();
 			if (availablePositions.size() != 0)
 			{
 				pickedPosition = rand() % availablePositions.size();
-				tmpPlayer.PlaceSign(availablePositions[pickedPosition], m_board);
+				tmpPlayer->PlaceSign(availablePositions[pickedPosition], m_board);
 			}
 			else break;
 
-			m_board.PrintBoard();
+			m_board->PrintBoard();
 			std::cout << "\nComputer placed at position " << availablePositions[pickedPosition] << '\n';
 		}
 		else
@@ -54,18 +57,18 @@ void Game::RunConsole()
 			{
 				std::cout << "\nPick position: ";
 				std::cin >> pickedPosition;
-			} while (tmpPlayer.PlaceSign(pickedPosition, m_board) == false);
-			m_board.PrintBoard();
+			} while (tmpPlayer->PlaceSign(pickedPosition, m_board) == false);
+			m_board->PrintBoard();
 			
 		}
-		if (m_board.CheckGameState() != 3)
+		if (m_board->CheckGameState() != GameState::gameState::Undetermined)
 			break;
 		m_order.pop();
 		m_order.push(tmpPlayer);
 	}
-	if (m_board.CheckGameState() == 0)
+	if (m_board->CheckGameState() == GameState::gameState::WonO)
 		std::cout << "O won!\n";
-	else if (m_board.CheckGameState() == 1)
+	else if (m_board->CheckGameState() == GameState::gameState::WonX)
 		std::cout << "X won!\n";
 	else std::cout << "Tie!\n";
 }

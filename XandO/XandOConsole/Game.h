@@ -10,10 +10,10 @@
 
 class Game: public IGame
 {
-	Board m_board;
-	Player m_player;
-	Player m_computer;
-	std::queue<Player> m_order;
+	IBoardPtr m_board;
+	IPlayerPtr m_player;
+	IPlayerPtr m_computer;
+	std::queue<IPlayerPtr> m_order;
 public:
 	Game();
 	void RunConsole() override;

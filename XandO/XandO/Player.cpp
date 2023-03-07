@@ -1,10 +1,11 @@
 #include "Player.h"
 
-bool Player::PlaceSign(const uint16_t& position, Board& board)
+bool Player::PlaceSign(const uint16_t& position, IBoardPtr board)
 {
-	if (board[position] == Sign::sign::None)
+
+	if (board->operator[](position) == Sign::sign::None)
 	{
-		board[position] = m_sign;
+		board->operator[](position) = m_sign;
 		return true;
 	}
 	else

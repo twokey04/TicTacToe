@@ -9,6 +9,11 @@ Board::Board()
 	};
 }
 
+std::array<Sign::sign, 9> Board::GetBoard() const 
+{
+	return m_board;
+}
+
 void Board::SetSign(const uint16_t& position, const Sign::sign& sign)
 {
 	if (GetSign(position) == Sign::sign::None)
@@ -17,15 +22,15 @@ void Board::SetSign(const uint16_t& position, const Sign::sign& sign)
 		return;
 }
 
-uint16_t Board::CheckGameState()
+GameState::gameState Board::CheckGameState()
 {
 	if (CheckWin(Sign::sign::O))
-		return 0;
+		return GameState::gameState::WonO;
 	else if (CheckWin(Sign::sign::X))
-		return 1;
+		return GameState::gameState::WonX;
 	else if (CheckTie())
-		return 2;
-	else return 3;
+		return GameState::gameState::Tie;
+	else return GameState::gameState::Undetermined;
 }
 
 void Board::ClearBoard()

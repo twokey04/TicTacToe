@@ -10,7 +10,7 @@ class Player: public IPlayer
 {
 public:
 	Player() = default;
-	bool PlaceSign(const uint16_t& position, Board& board);
+	bool PlaceSign(const uint16_t& position, IBoardPtr board);
 	std::string GetPlayerName() const;
 	void SetPlayerName(const std::string& name);
 	void SetSign(const Sign::sign& sign);
