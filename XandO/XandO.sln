@@ -10,6 +10,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XandOConsole", "XandOConsol
 		{CF35372E-406C-42A0-98F2-36355EDEDF15} = {CF35372E-406C-42A0-98F2-36355EDEDF15}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XandOGui", "XandOGui\XandOGui.vcxproj", "{C000E395-A253-40BE-8275-F8BC94E48E22}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CF35372E-406C-42A0-98F2-36355EDEDF15} = {CF35372E-406C-42A0-98F2-36355EDEDF15}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -34,6 +39,14 @@ Global
 		{EB45AD3B-DA98-4FA9-B4F3-581FAF31F78D}.Release|x64.Build.0 = Release|x64
 		{EB45AD3B-DA98-4FA9-B4F3-581FAF31F78D}.Release|x86.ActiveCfg = Release|Win32
 		{EB45AD3B-DA98-4FA9-B4F3-581FAF31F78D}.Release|x86.Build.0 = Release|Win32
+		{C000E395-A253-40BE-8275-F8BC94E48E22}.Debug|x64.ActiveCfg = Debug|x64
+		{C000E395-A253-40BE-8275-F8BC94E48E22}.Debug|x64.Build.0 = Debug|x64
+		{C000E395-A253-40BE-8275-F8BC94E48E22}.Debug|x86.ActiveCfg = Debug|x64
+		{C000E395-A253-40BE-8275-F8BC94E48E22}.Debug|x86.Build.0 = Debug|x64
+		{C000E395-A253-40BE-8275-F8BC94E48E22}.Release|x64.ActiveCfg = Release|x64
+		{C000E395-A253-40BE-8275-F8BC94E48E22}.Release|x64.Build.0 = Release|x64
+		{C000E395-A253-40BE-8275-F8BC94E48E22}.Release|x86.ActiveCfg = Release|x64
+		{C000E395-A253-40BE-8275-F8BC94E48E22}.Release|x86.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

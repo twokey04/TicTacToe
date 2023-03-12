@@ -27,3 +27,8 @@ void Player::SetSign(const Sign::sign& sign)
 	m_sign = sign;
 }
 
+Sign::sign Player::GetSign() const
+{
+	return m_sign;
+}
+

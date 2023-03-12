@@ -16,5 +16,6 @@ public:
 	virtual std::string GetPlayerName() const = 0;
 	virtual void SetPlayerName(const std::string& name) = 0;
 	virtual void SetSign(const Sign::sign& sign) = 0;
+	virtual Sign::sign GetSign() const = 0;
 };
 
