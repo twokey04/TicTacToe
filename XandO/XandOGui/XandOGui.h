@@ -7,11 +7,13 @@
 
 #include <array>
 #include <queue>
+#include <algorithm>
 
 #include "ui_XandOGui.h"
 #include "qpushbutton.h"
 #include "qvector.h"
 #include "qgridlayout.h"
+#include <qmessagebox.h>
 
 #include "IBoard.h"
 #include "IPlayer.h"
@@ -33,6 +35,7 @@ public:
 private:
     Ui::XandOGuiClass *ui;
     std::array<QPushButton*, 9> boardButtons;
+    QGridLayout* gridLayout;
     IBoardPtr m_board;
     IPlayerPtr m_player;
     IPlayerPtr m_computer;
