@@ -14,7 +14,7 @@ std::array<Sign::sign, 9> Board::GetBoard() const
 	return m_board;
 }
 
-void Board::SetSign(const uint16_t& position, const Sign::sign& sign)
+void Board::SetSign(uint16_t position, const Sign::sign& sign)
 {
 	if (GetSign(position) == Sign::sign::None)
 		m_board[position] = sign;
@@ -53,7 +53,7 @@ bool Board::CheckTie()
 	return std::find(m_board.begin(),m_board.end(), Sign::sign::None) == m_board.end();
 }
 
-bool Board::CheckWin(Sign::sign sign)
+bool Board::CheckWin(const Sign::sign& sign)
 {
 	if (
 		m_board[0] == sign && m_board[1] == sign && m_board[2] == sign ||
@@ -70,16 +70,13 @@ bool Board::CheckWin(Sign::sign sign)
 	return false;
 }
 
-Sign::sign Board::GetSign(const uint16_t& position) const
+Sign::sign Board::GetSign( uint16_t position) const
 {
 	return m_board[position];
 }
 
-Sign::sign& Board::operator[](const uint16_t& position)
+Sign::sign& Board::operator[](uint16_t position)
 {
-	if (position < 0 || position > 8)
-		throw "Board index out of bound.";
-
 	return m_board[position];
 }
 

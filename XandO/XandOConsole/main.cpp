@@ -14,7 +14,7 @@ int main()
 	while (game->GetGameBoard().CheckGameState() == GameState::gameState::Undetermined) {
 		std::cout << "Position: ";
 		std::cin >> position;
-		game->RunConsole(position);
+		game->RunRound(position);
 		
 	}
 

@@ -15,7 +15,7 @@ public:
     virtual void RemoveListeners(IGameListenerPtr ptr) = 0;
     virtual void NotifyAll() = 0;
     static IGamePtr Produce();
-    virtual void RunConsole(uint16_t position) = 0;
+    virtual void RunRound(uint16_t position) = 0;
     
     virtual bool PlaceSign(uint16_t position, IPlayerPtr player) = 0;
     virtual void InitializeGame() = 0;

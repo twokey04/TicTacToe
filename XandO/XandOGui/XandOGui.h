@@ -15,9 +15,6 @@
 #include "qgridlayout.h"
 #include <qmessagebox.h>
 
-//#include "Board.h"
-//#include "IPlayer.h"
-//#include "Sign.h"
 #include "IGame.h"
 #include "GuiListener.h"
 
@@ -31,17 +28,12 @@ class XandOGui : public QMainWindow
 
 public:
     XandOGui(QWidget *parent = nullptr);
-    void RunGui();
     ~XandOGui();
 
 private:
     Ui::XandOGuiClass *ui;
     std::array<QPushButton*, 9> boardButtons;
     QGridLayout* gridLayout;
-   /* Board m_board;
-    IPlayerPtr m_player;
-    IPlayerPtr m_computer;*/
-    //std::queue<IPlayerPtr> m_order;
     IGamePtr m_game;
     IGameListenerPtr m_listener;
 

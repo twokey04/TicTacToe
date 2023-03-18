@@ -6,6 +6,7 @@
 #include "IGame.h"
 #include <QVector>
 #include <QPushButton>
+#include <QMessageBox>
 
 
 class GuiListener: public IGameListener
@@ -13,8 +14,8 @@ class GuiListener: public IGameListener
 public:
 	GuiListener(IGamePtr game, std::array<QPushButton*, 9>& vector);
 
-	virtual void Update();
-	virtual void ShowGameState();
+	void Update();
+	void ShowGameState();
 private:
 
 	IGamePtr m_game;

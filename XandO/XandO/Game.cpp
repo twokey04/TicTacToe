@@ -5,7 +5,6 @@
 
 Game::Game()
 {
-	//m_board = IBoard::Produce();
 	m_player = IPlayer::Produce();
 	m_computer = IPlayer::Produce();
 	std::cout << "Enter your name!\n";
@@ -17,7 +16,8 @@ Game::Game()
 	
 }
 
-void Game::InitializeGame() {
+void Game::InitializeGame() 
+{
 	uint16_t random = rand() % 2;
 	switch (random)
 	{
@@ -27,7 +27,7 @@ void Game::InitializeGame() {
 		m_player->SetSign(Sign::sign::O);
 		m_order.push(m_computer);
 		m_order.push(m_player);
-		RunConsole(-1);
+		RunRound(-1);
 		break;
 	case 1:
 		//1 - incepe player
@@ -36,7 +36,6 @@ void Game::InitializeGame() {
 		m_order.push(m_player);
 		m_order.push(m_computer);
 		NotifyAll();
-		//m_board.PrintBoard();
 		break;
 	}
 }
@@ -68,22 +67,23 @@ void Game::NotifyAll()
 		obs->Update();
 		obs->ShowGameState();
 	}
-
-
 }
 
-void Game::RunConsole(uint16_t position)
+void Game::RunRound(uint16_t position)
 {
 
 		IPlayerPtr tmpPlayer = m_order.front();
 		
 		uint16_t pickedPosition;
 
-		if (tmpPlayer == m_player) {
-			if (!PlaceSign(position, tmpPlayer)) {
+		if (tmpPlayer == m_player) 
+		{
+			if (!PlaceSign(position, tmpPlayer)) 
+			{
 				return;
 			}
-			else {
+			else 
+			{
 				m_order.pop();
 				m_order.push(tmpPlayer);
 				tmpPlayer = m_order.front();
@@ -102,19 +102,21 @@ void Game::RunConsole(uint16_t position)
 			else return;
 			
 		}
+		
+		m_order.pop();
+		m_order.push(tmpPlayer);
 			
 		for (auto obs : m_listeners)
 			NotifyAll();
-	
-		m_order.pop();
-		m_order.push(tmpPlayer);
+
 	
 
 }
 
 bool Game::PlaceSign(uint16_t position, IPlayerPtr player)
 {
-
+	if (position < 0 || position > 8)
+		return false;
 	if (m_board.operator[](position) == Sign::sign::None)
 	{
 		m_board.operator[](position) = player->GetSign();
@@ -122,6 +124,7 @@ bool Game::PlaceSign(uint16_t position, IPlayerPtr player)
 	}
 	else
 		return false;
+	
 }
 
 IPlayerPtr Game::GetComputer() {

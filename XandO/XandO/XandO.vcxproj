@@ -130,7 +130,6 @@
     <ClInclude Include="Board.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameState.h" />
-    <ClInclude Include="IBoard.h" />
     <ClInclude Include="IGame.h" />
     <ClInclude Include="IGameListener.h" />
     <ClInclude Include="IPlayer.h" />
@@ -140,7 +139,6 @@
   <ItemGroup>
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="IBoard.cpp" />
     <ClCompile Include="IGame.cpp" />
     <ClCompile Include="IPlayer.cpp" />
     <ClCompile Include="Player.cpp" />

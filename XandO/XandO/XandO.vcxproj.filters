@@ -24,9 +24,6 @@
     <ClInclude Include="Sign.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IBoard.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="IPlayer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -48,9 +45,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Board.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="IBoard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="IPlayer.cpp">
