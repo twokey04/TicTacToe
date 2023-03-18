@@ -55,15 +55,6 @@ bool Board::CheckTie()
 
 bool Board::CheckWin(Sign::sign sign)
 {
-	/*bool line = true;
-	for (auto index = 0; index < m_board.size(); index++)
-	{
-		if (m_board[index] != sign)
-			line = false;
-		if (index % 3 == 0)
-			if (line == true)
-				return true;
-	}*/
 	if (
 		m_board[0] == sign && m_board[1] == sign && m_board[2] == sign ||
 		m_board[3] == sign && m_board[4] == sign && m_board[5] == sign ||

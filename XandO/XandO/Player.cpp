@@ -1,16 +1,5 @@
 #include "Player.h"
 
-bool Player::PlaceSign(const uint16_t& position, IBoardPtr board)
-{
-
-	if (board->operator[](position) == Sign::sign::None)
-	{
-		board->operator[](position) = m_sign;
-		return true;
-	}
-	else
-		return false;
-}
 
 std::string Player::GetPlayerName() const
 {
