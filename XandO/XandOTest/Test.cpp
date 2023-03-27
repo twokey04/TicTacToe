@@ -67,7 +67,7 @@ TEST(BoardTest, IncorrectPlacement)
 	player->SetSign(Sign::sign::X);
 	EXPECT_EQ(game->PlaceSign(-1, player), false);
 	EXPECT_EQ(game->PlaceSign(6, player), true);
-	EXPECT_EQ(game->PlaceSign('a', player), true);
+	EXPECT_EQ(game->PlaceSign('a', player), false);
 }
 
 TEST(GameTest, PositionAlreadyOccupied)
@@ -100,7 +100,6 @@ TEST(BoardWin, CheckWinX)
 	game->PlaceSign(3, player1);
 	game->PlaceSign(5, player2);
 	game->PlaceSign(6, player1);
-	game->PlaceSign(8, player2);
 
 	EXPECT_EQ(game->GetGameBoard().CheckGameState(), GameState::gameState::WonX);
 }
