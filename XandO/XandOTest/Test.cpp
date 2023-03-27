@@ -86,7 +86,7 @@ TEST(BoardTest, EmptyCells)
 	EXPECT_EQ(game->GetGameBoard().GetEmptyCells().size(), 8);
 }
 
-TEST(BoardWin, CheckWin)
+TEST(BoardWin, CheckWinX)
 {
 	IGamePtr game = IGame::Produce();
 
@@ -103,6 +103,47 @@ TEST(BoardWin, CheckWin)
 	game->PlaceSign(8, player2);
 
 	EXPECT_EQ(game->GetGameBoard().CheckGameState(), GameState::gameState::WonX);
+}
+
+TEST(BoardWin, CheckTie)
+{
+	IGamePtr game = IGame::Produce();
+
+	IPlayerPtr player1 = IPlayer::Produce();
+	player1->SetSign(Sign::sign::O);
+	IPlayerPtr player2 = IPlayer::Produce();
+	player2->SetSign(Sign::sign::X);
+
+	game->PlaceSign(0, player1);
+	game->PlaceSign(1, player2);
+	game->PlaceSign(5, player1);
+	game->PlaceSign(2, player2);
+	game->PlaceSign(6, player1);
+	game->PlaceSign(4, player2);	
+	game->PlaceSign(7, player1);
+	game->PlaceSign(8, player2);
+	game->PlaceSign(3, player2);
+
+	EXPECT_EQ(game->GetGameBoard().CheckGameState(), GameState::gameState::Tie);
+}
+
+TEST(BoardWin, CheckWinO)
+{
+	IGamePtr game = IGame::Produce();
+
+	IPlayerPtr player1 = IPlayer::Produce();
+	player1->SetSign(Sign::sign::O);
+	IPlayerPtr player2 = IPlayer::Produce();
+	player2->SetSign(Sign::sign::X);
+
+	game->PlaceSign(0, player1);
+	game->PlaceSign(3, player2);
+	game->PlaceSign(1, player1);
+	game->PlaceSign(4, player2);
+	game->PlaceSign(2, player1);
+	game->PlaceSign(8, player2);
+
+	EXPECT_EQ(game->GetGameBoard().CheckGameState(), GameState::gameState::WonO);
 }
 
 int main(int argc, char** argv)
