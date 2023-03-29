@@ -84,6 +84,9 @@ void Game::RunRound(uint16_t position)
 			}
 			else 
 			{
+				for (auto obs : m_listeners)
+					obs->Update();
+
 				m_order.pop();
 				m_order.push(tmpPlayer);
 				tmpPlayer = m_order.front();
@@ -97,20 +100,18 @@ void Game::RunRound(uint16_t position)
 			{
 				pickedPosition = rand() % availablePositions.size();
 				PlaceSign(availablePositions[pickedPosition], tmpPlayer);
+				for (auto obs : m_listeners)
+					obs->Update();
 				
 			}
 			else return;
-			
 		}
 		
 		m_order.pop();
 		m_order.push(tmpPlayer);
 			
 		for (auto obs : m_listeners)
-			NotifyAll();
-
-	
-
+			obs->ShowGameState();
 }
 
 bool Game::PlaceSign(uint16_t position, IPlayerPtr player)

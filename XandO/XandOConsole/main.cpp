@@ -6,7 +6,7 @@
 int main() 
 {
 	IGamePtr game = IGame::Produce();
-	IGameListenerPtr consoleListener = std::make_shared<ConsoleListener>(game);
+	IGameListenerPtr consoleListener = std::make_shared<ConsoleListener>(&game);
 	game->AddListeners(consoleListener);
 	game->InitializeGame();
 
