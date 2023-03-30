@@ -4,6 +4,9 @@
 #include <queue>
 
 #include "IGame.h"
+#include "EasyStrategy.h"
+#include "MediumStrategy.h"
+#include "HardStrategy.h"
 
 class Game: public IGame
 {
@@ -12,9 +15,10 @@ class Game: public IGame
 	IPlayerPtr m_computer;
 	std::queue<IPlayerPtr> m_order;
 	std::vector<IGameListenerPtr> m_listeners;
+	std::shared_ptr<IDifficultyStrategy> m_strategy;
 
 public:
-	Game();
+	Game(Difficulty::Level level);
 	void InitializeGame() override;
 	Board GetGameBoard() override;
 	IPlayerPtr GetPlayer() override;

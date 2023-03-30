@@ -3,7 +3,7 @@
 
 
 
-Game::Game()
+Game::Game(Difficulty::Level level)
 {
 	m_player = IPlayer::Produce();
 	m_computer = IPlayer::Produce();
@@ -11,9 +11,18 @@ Game::Game()
 	std::string tmpName;
 	std::cin >> tmpName;
 	m_player->SetPlayerName(tmpName);
-	srand(time(NULL));
-
 	
+	switch (level) {
+	case Difficulty::Level::Easy:
+		m_strategy = std::make_shared<EasyStrategy>();
+		break;
+	case Difficulty::Level::Medium:
+		m_strategy = std::make_shared<MediumStrategy>();
+		break;
+	case Difficulty::Level::Hard:
+		m_strategy = std::make_shared<HardStrategy>();
+		break;
+	}
 }
 
 void Game::InitializeGame() 
@@ -71,7 +80,6 @@ void Game::NotifyAll()
 
 void Game::RunRound(uint16_t position)
 {
-
 		IPlayerPtr tmpPlayer = m_order.front();
 		
 		uint16_t pickedPosition;
@@ -89,18 +97,11 @@ void Game::RunRound(uint16_t position)
 				tmpPlayer = m_order.front();
 			}
 		}
-
+		
 		if (tmpPlayer == m_computer && m_board.CheckGameState() == GameState::gameState::Undetermined)
 		{
-			std::vector<uint16_t> availablePositions = m_board.GetEmptyCells();
-			if (availablePositions.size() != 0)
-			{
-				pickedPosition = rand() % availablePositions.size();
-				PlaceSign(availablePositions[pickedPosition], tmpPlayer);
-				
-			}
-			else return;
-			
+			uint16_t nextMove = m_strategy->GetNextMove(m_board, tmpPlayer->GetSign());
+			PlaceSign(nextMove, tmpPlayer);
 		}
 		
 		m_order.pop();
@@ -108,9 +109,6 @@ void Game::RunRound(uint16_t position)
 			
 		for (auto obs : m_listeners)
 			NotifyAll();
-
-	
-
 }
 
 bool Game::PlaceSign(uint16_t position, IPlayerPtr player)

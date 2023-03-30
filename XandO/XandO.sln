@@ -16,6 +16,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XandOGui", "XandOGui\XandOG
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XandOTest", "XandOTest\XandOTest.vcxproj", "{E724163C-F1E8-4D50-BB7D-D6B6DCE63B4B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CF35372E-406C-42A0-98F2-36355EDEDF15} = {CF35372E-406C-42A0-98F2-36355EDEDF15}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

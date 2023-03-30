@@ -1,4 +1,4 @@
-#include "Tests.h"
+#include "tests.h"
 
 #include "Board.h"
 #include "IGame.h"
