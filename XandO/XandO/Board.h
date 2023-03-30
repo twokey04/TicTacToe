@@ -13,7 +13,6 @@ class Board
 public:
 	Board();
 	std::array<Sign::sign, 9> GetBoard() const;
-	void SetSign(uint16_t position, const Sign::sign& sign);
 	GameState::gameState CheckGameState();
 	void ClearBoard();
 	std::vector<uint16_t> GetEmptyCells() const ;

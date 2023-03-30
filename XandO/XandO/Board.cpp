@@ -14,14 +14,6 @@ std::array<Sign::sign, 9> Board::GetBoard() const
 	return m_board;
 }
 
-void Board::SetSign(uint16_t position, const Sign::sign& sign)
-{
-	if (GetSign(position) == Sign::sign::None)
-		m_board[position] = sign;
-	else
-		return;
-}
-
 GameState::gameState Board::CheckGameState()
 {
 	if (CheckWin(Sign::sign::O))

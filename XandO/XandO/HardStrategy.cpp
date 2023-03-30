@@ -13,6 +13,7 @@ uint16_t HardStrategy::GetNextMove(const Board& board, const Sign::sign computer
         int score;
         int index = Minimax(newBoard, (computerSign == Sign::sign::X) ? Sign::sign::O : Sign::sign::X, score);
         //TODO: implement minimax
+        //TODO: fix below
         if ((computerSign == m_game->GetComputer()->GetSign() && score > bestScore) ||
             (computerSign == m_game->GetPlayer()->GetSign() && score < bestScore)) {
             bestScore = score;
