@@ -3,6 +3,9 @@
 
 IGamePtr IGame::Produce(int difficulty)
 {
+	/**
+	 * @note If an invalid difficulty level is provided, the function will default to easy mode.
+	 */
 	switch (difficulty) {
 	case 0:
 		return std::make_shared<Game>(Difficulty::Level::Easy);
