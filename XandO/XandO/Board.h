@@ -18,10 +18,10 @@ public:
 	std::vector<uint16_t> GetEmptyCells() const ;
 	Sign::sign& operator[](uint16_t position);
 	void PrintBoard();
-
-private:
 	bool CheckTie();
 	bool CheckWin(const Sign::sign& sign);
+
+private:
 	Sign::sign GetSign(uint16_t position) const;
 
 private:

@@ -5,6 +5,7 @@
 class HardStrategy : public IDifficultyStrategy
 {
 public:
-	virtual uint16_t GetNextMove(const Board& board, const Sign::sign computerSign) override;
+	virtual uint16_t GetNextMove(Board& board, const Sign::sign computerSign) override;
+	int Minimax(Board& board, const Sign::sign& playerSign, const Sign::sign& computerSign);
 };
 

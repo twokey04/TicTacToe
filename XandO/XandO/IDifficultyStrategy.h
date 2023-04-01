@@ -6,5 +6,5 @@
 
 class IDifficultyStrategy {
 public:
-	virtual uint16_t GetNextMove(const Board& board, const Sign::sign computerSign) = 0;
+	virtual uint16_t GetNextMove(Board& board, const Sign::sign computerSign) = 0;
 };
