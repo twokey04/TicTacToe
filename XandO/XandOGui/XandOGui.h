@@ -27,7 +27,7 @@ class XandOGui : public QMainWindow
     Q_OBJECT
 
 public:
-    XandOGui(QWidget *parent = nullptr);
+    XandOGui(IGamePtr game, QWidget *parent);
     ~XandOGui();
 
 private:

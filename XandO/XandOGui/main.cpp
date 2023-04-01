@@ -1,10 +1,11 @@
 #include "XandOGui.h"
+#include "XandODifficultyWindow.h"
 #include <QtWidgets/QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    XandOGui w;
+    XandODifficultyWindow w;
     w.show();
     return a.exec();
 }

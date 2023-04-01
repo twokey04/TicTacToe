@@ -136,7 +136,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Tests.h" />
+    <ClInclude Include="includes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />

@@ -1,4 +1,4 @@
-#include "Tests.h"
+#include "includes.h"
 
 
 class MockListener: public IGameListener {
@@ -10,7 +10,7 @@ public:
 TEST(ListenerTest, UpdateTest) {
     MockListener mockConsoleListener;
 
-	IGamePtr game = IGame::Produce();
+	IGamePtr game = IGame::Produce(0);
 
     EXPECT_CALL(mockConsoleListener, Update())
         .WillOnce([&game]() {
@@ -35,7 +35,7 @@ TEST(ListenerTest, UpdateTest) {
 TEST(ListenerTest, ShowGameState) {
 	MockListener mockConsoleListener;
 
-	IGamePtr game = IGame::Produce();
+	IGamePtr game = IGame::Produce(0);
 	IPlayerPtr player = IPlayer::Produce();
 	player->SetPlayerName("Test");
 	player->SetSign(Sign::sign::X);
@@ -59,7 +59,7 @@ TEST(BoardTest, IncorrectPlacement)
 {
 	MockListener mockConsoleListener;
 
-	IGamePtr game = IGame::Produce();
+	IGamePtr game = IGame::Produce(0);
 
 	IPlayerPtr player = IPlayer::Produce();
 	player->SetPlayerName("Test");
@@ -72,7 +72,7 @@ TEST(BoardTest, IncorrectPlacement)
 
 TEST(GameTest, PositionAlreadyOccupied)
 {
-	IGamePtr game = IGame::Produce();
+	IGamePtr game = IGame::Produce(0);
 
 	game->PlaceSign(0, game->GetPlayer());
 	EXPECT_EQ(game->PlaceSign(0, game->GetPlayer()), false);
@@ -80,7 +80,7 @@ TEST(GameTest, PositionAlreadyOccupied)
 
 TEST(BoardTest, EmptyCells)
 {
-	IGamePtr game = IGame::Produce();
+	IGamePtr game = IGame::Produce(0);
 
 	game->PlaceSign(0, game->GetPlayer());
 	EXPECT_EQ(game->GetGameBoard().GetEmptyCells().size(), 8);
@@ -88,7 +88,7 @@ TEST(BoardTest, EmptyCells)
 
 TEST(BoardWin, CheckWinX)
 {
-	IGamePtr game = IGame::Produce();
+	IGamePtr game = IGame::Produce(0);
 
 	IPlayerPtr player1 = IPlayer::Produce();
 	player1->SetSign(Sign::sign::X);
@@ -106,7 +106,7 @@ TEST(BoardWin, CheckWinX)
 
 TEST(BoardWin, CheckTie)
 {
-	IGamePtr game = IGame::Produce();
+	IGamePtr game = IGame::Produce(0);
 
 	IPlayerPtr player1 = IPlayer::Produce();
 	player1->SetSign(Sign::sign::O);
@@ -128,7 +128,7 @@ TEST(BoardWin, CheckTie)
 
 TEST(BoardWin, CheckWinO)
 {
-	IGamePtr game = IGame::Produce();
+	IGamePtr game = IGame::Produce(0);
 
 	IPlayerPtr player1 = IPlayer::Produce();
 	player1->SetSign(Sign::sign::O);

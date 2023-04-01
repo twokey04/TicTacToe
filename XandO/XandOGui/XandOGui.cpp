@@ -1,9 +1,10 @@
 #include "XandOGui.h"
 
 
-XandOGui::XandOGui(QWidget *parent)
+XandOGui::XandOGui(IGamePtr game, QWidget* parent)
     : QMainWindow(parent)
     , ui(new Ui::XandOGuiClass())
+    , m_game(game)
 {
     ui->setupUi(this);
 
@@ -25,7 +26,6 @@ XandOGui::XandOGui(QWidget *parent)
         }
     }
 
-    m_game = IGame::Produce();
     m_listener = std::make_shared<GuiListener>(m_game, boardButtons);
     m_game->AddListeners(m_listener);
     m_game->InitializeGame();
@@ -34,6 +34,7 @@ XandOGui::XandOGui(QWidget *parent)
 
     srand(time(NULL));
 }
+
 
 void XandOGui::onButtonClicked()
 {

@@ -8,7 +8,7 @@ uint16_t HardStrategy::GetNextMove(const Board& board, const Sign::sign computer
 
     for (uint16_t cell : availablePositions) {
         Board newBoard = board;
-        newBoard.SetSign(cell, computerSign);
+        /*newBoard.SetSign(cell, computerSign);
 
         int score;
         int index = Minimax(newBoard, (computerSign == Sign::sign::X) ? Sign::sign::O : Sign::sign::X, score);
@@ -19,6 +19,7 @@ uint16_t HardStrategy::GetNextMove(const Board& board, const Sign::sign computer
             bestScore = score;
             index = cell;
         }
+        */
     }
 
     return bestScore;
