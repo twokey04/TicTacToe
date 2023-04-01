@@ -28,9 +28,9 @@ void ConsoleListener::Update()
 void ConsoleListener::ShowGameState() {
 
 	if (m_game->GetGameBoard().CheckGameState() == GameState::gameState::WonO)
-		std::cout << "O won!\n";
+		std::cout << "\nO won!\n";
 	else if (m_game->GetGameBoard().CheckGameState() == GameState::gameState::WonX)
-		std::cout << "X won!\n";
-	else if (m_game->GetGameBoard().CheckGameState() == GameState::gameState::Tie) std::cout << "Tie!\n";
+		std::cout << "\nX won!\n";
+	else if (m_game->GetGameBoard().CheckGameState() == GameState::gameState::Tie) std::cout << "\nTie!\n";
 
 }
