@@ -6,5 +6,10 @@ uint16_t EasyStrategy::GetNextMove(Board& board, const Sign::sign computerSign)
 	if (availablePositions.size() != 0) {
 		return availablePositions[rand() % availablePositions.size()];
 	}
-	return INT16_MAX;
+	return std::numeric_limits<uint16_t>::max();
+}
+
+Difficulty::Level EasyStrategy::GetDifficulty() const
+{
+	return Difficulty::Level::Easy;
 }

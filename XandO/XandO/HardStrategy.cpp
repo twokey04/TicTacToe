@@ -69,3 +69,8 @@ int HardStrategy::Minimax(Board& board, int depth, int alpha, int beta, bool max
     }
     return bestScore;
 }
+
+Difficulty::Level HardStrategy::GetDifficulty() const
+{
+    return Difficulty::Level::Hard;
+}
