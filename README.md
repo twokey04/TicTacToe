@@ -1,10 +1,3 @@
 # Tic Tac Toe
 
-## 🧰 Built with
-
-* C++
-* Design patterns (Factory, Observers, Strategy)
-
-## ⏯️ Usage
-
-Simple (player vs computer) console and UI Tic Tac Toe game.
+Simple (player vs computer) console and UI Tic Tac Toe game built with C++ and QT Framework. This projects uses design patterns sich as Factory, Observers and Strategy.
